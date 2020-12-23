@@ -1,0 +1,39 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='css/style.css')
+    title 3Dimobiliare.ro
+
+mixin section(title, color)
+    .px-8.grid.grid-cols-3.gap-5
+        .flex.flex-1.items-center
+            .w-full(class='h-0.5 bg-' + color)
+        p.flex-initial.text-lg.font-bold.text-center(class='text-' + color)= title
+        .flex.flex-1.items-center
+            .w-full(class='h-0.5 bg-' + color)
+
+
+.w-screen.px-10.py-3.text-xl.bg-gray-deep
+    span.text-orange 3D
+    span.text-white imobiliare.ro
+
+.flex.items-center.justify-center.w-screen.h-56.text-white.bg-blue
+    p.text-xl.font-bold.uppercase Serviciile noastre
+
+.w-screen.py-10
+    +section('Tururi virtuale', 'blue')
+
+.w-screen.py-10.text-center.text-white.bg-gradient-to-r.from-blue.to-purple
+    +section('Social Media Marketing', 'white')
+    .w-auto.flex.justify-center
+        .w-auto.px-10.py-10.text-center
+            p.text-lg Facebook
+            img(src='img/facebook.png').w-20.mt-4
+        .w-auto.px-10.py-10.text-center.text-white
+            p.text-lg Instagram
+            img(src='img/instagram.png').w-20.mt-4
+    ul.max-w-max.mx-auto.text-left.list-disc
+        li Creare pagină de business
+        li Mentenanță pagină de business
+        li Promovare/campanii publicitare
