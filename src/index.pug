@@ -2,6 +2,7 @@ doctype html
 head
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons')
     link(rel='stylesheet' href='css/style.css')
     title 3Dimobiliare.ro
 
@@ -14,17 +15,25 @@ mixin section(title, color)
             .w-full(class='h-0.5 bg-' + color)
 
 
-.w-screen.px-10.py-3.text-xl.bg-gray-deep
-    span.text-orange 3D
+// Top logo bar
+.w-full.px-10.py-3.bg-gray-deep.text-xl.font-bold.italic
+    span.text-orange.text-2xl 3D
     span.text-white imobiliare.ro
 
-.flex.items-center.justify-center.w-screen.h-56.text-white.bg-blue
+// Page heading
+.flex.items-center.justify-center.w-full.h-56.text-white.bg-gradient-to-r.from-blue-dark.to-blue-light
     p.text-xl.font-bold.uppercase Serviciile noastre
 
-.w-screen.py-10
-    +section('Tururi virtuale', 'blue')
+// Virtual tours
+.w-full.py-10.text-center
+    +section('Tururi virtuale', 'blue-light')
+    p.my-5.text-blue-dark
+        | Vă asigurăm toate elementele de care aveți nevoie
+        | pentru a promova imobilul dumneavoastră.
 
-.w-screen.py-10.text-center.text-white.bg-gradient-to-r.from-blue.to-purple
+
+// Social media services
+.w-full.py-10.text-center.text-white.bg-gradient-to-r.from-blue-light.to-purple
     +section('Social Media Marketing', 'white')
     .w-auto.flex.justify-center
         .w-auto.px-10.py-10.text-center
@@ -33,7 +42,36 @@ mixin section(title, color)
         .w-auto.px-10.py-10.text-center.text-white
             p.text-lg Instagram
             img(src='img/instagram.png').w-20.mt-4
-    ul.max-w-max.mx-auto.text-left.list-disc
+    ul.max-w-max.mx-auto.px-5.text-left.list-disc
         li Creare pagină de business
         li Mentenanță pagină de business
         li Promovare/campanii publicitare
+
+// Contact cards
+mixin carditem(bgcolor)
+    .p-10.text-center.rounded-lg(class='bg-' + bgcolor)
+        block
+
+.w-full.box-border.py-10.text-center
+    +section('Contact', 'blue-light')
+    p.my-5.text-blue-dark Pentru informații suplimentare, nu ezitați să ne contactați.
+    .w-max.mx-auto.grid.gap-3.text-white(class='md:grid-cols-3')
+        +carditem('green')
+            p.material-icons.text-6xl email
+            p.font-bold email
+            p info@3dimobiliare.ro
+        +carditem('blue-dark')
+            p.material-icons.text-6xl phone
+            p.font-bold telefon
+            p +40 000 000 000
+        +carditem('blue-light')
+            p.material-icons.text-6xl place
+            p.font-bold adresă
+            p.whitespace-pre-wrap
+                | Strada X nr 1
+                | 700455
+                | IAȘI, Romania
+
+// Copyright
+.w-full.py-3.text-center.text-white.bg-gradient-to-r.from-blue-dark.to-blue-light
+    p.text-sm.font-bold 3Dimobiliare SRL 2020. Toate drepturile rezervate.
